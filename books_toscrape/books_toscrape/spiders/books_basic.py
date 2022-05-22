@@ -16,8 +16,8 @@ class BooksBasicSpider(scrapy.Spider):
                 'title': titles[i],
                 'url': urls[i]
             }
-        # next_page = response.xpath('//li[@class="next"]/a/@href').get()
-        # if next_page:
-        #     yield response.follow(url=next_page, callback=self.parse)
+        next_page = response.xpath('//li[@class="next"]/a/@href').get()
+        if next_page:
+            yield response.follow(url=next_page, callback=self.parse)
         
         
